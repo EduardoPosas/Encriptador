@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Encriptador de texto</title>
+</head>
+
+<body>
+    <section class="container main-content">
+        <section class="encrypter-container">
+            <header class="encrypter-logo">
+                <a href="index.html" class="logo-image">
+                    <img src="assets/logo.png" alt="alura logo" />
+                </a>
+            </header>
+
+            <main class="encrypter-content">
+                <div class="user-input">
+                    <textarea placeholder="Ingrese el texto aquí"></textarea>
+                </div>
+                <div class="instructions">
+                    <img src="assets/warning-icon.png" alt="instructions icon">
+                    <p class="instructions-text">Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="encrypter-actions">
+                    <button data-encrypt class="btn primary">Encriptar</button>
+                    <button data-decrypt class="btn secondary">Desencriptar</button>
+                </div>
+            </main>
+        </section>
+
+        <aside class="encrypted-container">
+            <div class="no-message">
+                <img src="assets/muñeco.png" alt="not message found">
+                <h2 class="no-message-text">Ningun mensaje fue encontrado</h2>
+                <p class="no-message-description">Ingresa el texto que desees encriptar o desencriptar</p>
+            </div>
+            <div class="encrypted-content hide">
+                <p class="encrypted-text"></p>
+                <button data-copy class="btn secondary copy">Copiar</button>
+            </div>
+        </aside>
+    </section>
+
+
+    <footer class="footer">
+        <p class="created">&copy; Todos los derechos reservados. <span></span></p>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
