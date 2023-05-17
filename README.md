@@ -6,14 +6,14 @@ Consiste en encriptar y desencriptar texto utilizando las llaves de encriptació
 - Letra **o** es convertida a **ober**
 - Letra **u** es convertida a **ufat**
 
-> [!WARNING] Consideraciones
-> Debe funcionar solo con letras minúsculas
-> No usar letras con acentos ni caracteres especiales
-> Se debe poder devolver la palabra encriptada a la versión original
+## Consideraciones
+- Debe funcionar solo con letras minúsculas
+- No usar letras con acentos ni caracteres especiales
+- Se debe poder devolver la palabra encriptada a la versión original
 
-Tecnologías a utilizar:
+## Tecnologías utilizadas:
 - HTML5
 - CSS3
 - Javascript
 
-Link de GitHub Pages: [Encriptador por Alexander Posas](https://eduardoposas.github.io/Encriptador/)
+Link del proyecto en GitHub Pages: [Encriptador por Alexander Posas](https://eduardoposas.github.io/Encriptador/)
