@@ -10,6 +10,14 @@ const encryptBtn = document.querySelector('[data-encrypt]');
 const decryptBtn = document.querySelector('[data-decrypt]');
 const copyBtn = document.querySelector('[data-copy]');
 
+const encryptionWords = {
+    e: 'enter',
+    i: 'imes',
+    a: 'ai',
+    o: 'ober',
+    u: 'ufat'
+};
+
 window.addEventListener('DOMContentLoaded', () => {
     let actualYear = new Date().getFullYear();
     madeBy.textContent = `Desarrollado por Alexander Posas ${actualYear}`;
@@ -58,22 +66,32 @@ function handleEncrypt() {
         return;
     }
 
-    // Replace data with a regex
-    let encyptedValue = data
-        .replace(/e/gi, "enter")
-        .replace(/i/gi, "imes")
-        .replace(/a/gi, "ai")
-        .replace(/o/gi, "ober")
-        .replace(/u/gi, "ufat");
+    // Encryption Logic
+    let encodedText = data;
+    for (let [key, value] of Object.entries(encryptionWords)) {
+        if (encodedText.includes(key)) {
+            encodedText = encodedText.replaceAll(key, value);
+        }
+    }
 
-    console.log(encyptedValue);
+    console.log(encodedText);
+
+    // Replace data with a regex option
+    // let encyptedValue = data
+    //     .replace(/e/gi, "enter")
+    //     .replace(/i/gi, "imes")
+    //     .replace(/a/gi, "ai")
+    //     .replace(/o/gi, "ober")
+    //     .replace(/u/gi, "ufat");
+
+    // console.log(encyptedValue);
 
     noDataElements.classList.remove('show');
     noDataElements.classList.add('hide');
     encryptedContent.classList.remove('hide');
     encryptedContent.classList.add('show');
 
-    encryptedTextOutput.textContent = encyptedValue;
+    encryptedTextOutput.textContent = encodedText;
     userInput.value = '';
 }
 
@@ -81,7 +99,7 @@ function handleDecrypt() {
     const { isValid, data } = validateInput(userInput.value);
 
     if (!isValid) {
-        showAlert(data);        
+        showAlert(data);
         encryptedContent.classList.add('hide');
         encryptedContent.classList.remove('show');
         noDataElements.classList.add('show');
@@ -89,21 +107,31 @@ function handleDecrypt() {
         return;
     }
 
-    let decryptedValue = data
-        .replace(/enter/gi, "e")
-        .replace(/imes/gi, "i")
-        .replace(/ai/gi, "a")
-        .replace(/ober/gi, "o")
-        .replace(/ufat/gi, "u");
+    // Decrypt Logic
+    let decodedText = data;
+    for (let [key, value] of Object.entries(encryptionWords)) {
+        if (decodedText.includes(value)) {
+            decodedText = decodedText.replaceAll(value, key);
+        }
+    }
 
-    console.log(decryptedValue);
+    console.log(decodedText);
+
+    // let decryptedValue = data
+    //     .replace(/enter/gi, "e")
+    //     .replace(/imes/gi, "i")
+    //     .replace(/ai/gi, "a")
+    //     .replace(/ober/gi, "o")
+    //     .replace(/ufat/gi, "u");
+
+    // console.log(decryptedValue);
 
     noDataElements.classList.remove('show');
     noDataElements.classList.add('hide');
     encryptedContent.classList.remove('hide');
     encryptedContent.classList.add('show');
 
-    encryptedTextOutput.textContent = decryptedValue;
+    encryptedTextOutput.textContent = decodedText;
     userInput.value = '';
 }
 
@@ -112,12 +140,12 @@ function handleCopy() {
     navigator.clipboard.writeText(valueToCopy);
     navigator.clipboard
         .readText()
-        .then(toast);    
+        .then(toast);
 }
 
 function showAlert(msg) {
     const alertExists = document.querySelector('.alert');
-    if(alertExists) {
+    if (alertExists) {
         alertExists.remove();
     }
 
@@ -134,7 +162,7 @@ function showAlert(msg) {
 
 function toast() {
     const toastExist = document.querySelector('.toast');
-    if(toastExist) {
+    if (toastExist) {
         toastExist.remove();
     }
     const toast = document.createElement('P');
