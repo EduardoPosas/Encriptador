@@ -16,4 +16,10 @@ Consiste en encriptar y desencriptar texto utilizando las llaves de encriptació
 - CSS3
 - Javascript
 
+## Funcionalidades Adicionales
+- Alerta de campo vacío
+- Alerta de datos introducidos erróneos
+- Toast cuando se copia texto encriptado
+- 100% responsivo
+
 Link del proyecto en GitHub Pages: [Encriptador por Alexander Posas](https://eduardoposas.github.io/Encriptador/)
