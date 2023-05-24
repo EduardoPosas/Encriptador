@@ -43,7 +43,7 @@ function validateInput(userText) {
     if (!pattern.test(userText)) {
         return {
             isValid: false,
-            data: 'El texto solo debe contener letras minúsculas y sin acentos'
+            data: 'El texto solo debe contener letras minúsculas, sin acentos y sin caracteres especiales'
         };
     }
 
